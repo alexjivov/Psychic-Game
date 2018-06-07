@@ -7,7 +7,6 @@ var wins = 0;
 var losses = 0;
 var guesses = 9;
 var guessesLeft = 9;
-
 var updateLettertoGuess = null; 
 
 //Letters the player guesses go into the array as they are inputted //
@@ -15,26 +14,26 @@ var guessedLetters = [];
 
 //Computer selects a random element (math.floor(math.Random() from the available var choices (computerChoices.length)//
 
-var computerGuess = computerChoices[math.floor(math.Random() * computerChoices.length)];
+var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
 // Guess limit for the player set as a function // 
 
 var guessesUpdate = function() {
 
 //Connect with the HTML element using document selector (i.e document query selector)//
-
-    document.querySelector('#guessesLeft').innerHTML = "Guesses Left: " + guessesLeft.join();
+console.log('guessesUpdate');
+    document.querySelector('#guessesLeft').innerHTML = "Guesses Left: " + guessesLeft;
 
 };
 
 var updateGuessLetters = function () {
-    this.guessLetter = this.computerChoices[math.floor(math.Random() * this.computerChoices.length)];
+    this.guessLetter = this.computerChoices[Math.floor(Math.random() * this.computerChoices.length)];
 
 };
 
 // Setting up the letters guessed so far and showing it as letters//
 var updateGuessedSoFar = function () {
-    document.querySelector('#guessesSoFar').innerHTML = "Guesses So Far: " + guessedLetters.join ();
+    document.querySelector('#guessesSoFar').innerHTML = "Guesses So Far: " + guessedLetters;
 
 };
 
@@ -51,13 +50,13 @@ var reset = function () {
 
 }
 
-guessUpdate();
-updateLettertoGuess();
+guessesUpdate();
+updateGuessLetters();
 
 //Setting up user keys to guess a letter//
 document.onkeyup = function(event) {
     guessesUpdate--;
-var playerGuess = string.fromCharCode(event.keyCode).toLowerCase();
+var playerGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
 //This pushes the guessed letter into the array//
 guessedLetters.push(playerGuess);
@@ -78,5 +77,4 @@ updateGuessLetters();
             alert("You Lose!")
             reset();
         }
-
 };
