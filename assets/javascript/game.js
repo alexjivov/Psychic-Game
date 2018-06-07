@@ -44,14 +44,12 @@ var reset = function () {
     // Array empty for user input still//
     guessedLetters = [];
 
+}
+
     guessesUpdate();
     updateGuessLetters();
     updateGuessedSoFar();
-
-}
-
-guessesUpdate();
-updateGuessLetters();
+    updateGuessLetters();
 
 //Setting up user keys to guess a letter//
 document.onkeyup = function(event) {
@@ -71,7 +69,7 @@ updateGuessLetters();
             alert("You Win!")
             reset();
             }
-        else if (guessesLeft == 0) {
+        else if (guessesLeft === 0) {
             losses++
             document.querySelector('#losses').innerHTML = "Lossses " + losses;
             alert("You Lose!")
